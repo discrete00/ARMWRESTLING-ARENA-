@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMWRESTLING ARENA | Premium Equipment & Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(2,132,199,0.8) 0%, rgba(14,165,233,0.9) 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-card:hover .event-date {
+            background-color: #0284c7;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 6rem;
+                padding-bottom: 4rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <i class="fas fa-hand-fist text-2xl text-primary-600 dark:text-primary-400 mr-2"></i>
+                        <span class="text-xl font-bold font-heading">ARMWRESTLING ARENA</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#equipment" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">Equipment</a>
+                    <a href="#events" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">Events</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">About</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-hs-overlay="#mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hs-overlay hidden w-full h-full fixed top-0 left-0 z-60 overflow-x-hidden overflow-y-auto">
+        <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-xs sm:w-full m-3 sm:ml-auto bg-white dark:bg-gray-800 shadow-md rounded-lg">
+            <div class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="font-bold text-gray-800 dark:text-white">Menu</h3>
+                <button type="button" class="inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" data-hs-overlay="#mobile-menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <a href="#equipment" class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" data-hs-overlay="#mobile-menu">
+                    Equipment
+                </a>
+                <a href="#events" class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" data-hs-overlay="#mobile-menu">
+                    Events
+                </a>
+                <a href="#about" class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" data-hs-overlay="#mobile-menu">
+                    About
+                </a>
+                <a href="#contact" class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" data-hs-overlay="#mobile-menu">
+                    Contact
+                </a>
+                <a href="#" class="w-full mt-4 flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 hero-content">
+            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                <div class="mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4">WELCOME TO THE ARENA</h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">Your premier destination for armwrestling equipment and championship events</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#equipment" class="px-6 py-3 bg-white text-primary-700 font-medium rounded-md shadow-sm hover:bg-gray-100 text-center">
+                            Shop Equipment
+                        </a>
+                        <a href="#events" class="px-6 py-3 border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-primary-700 transition-colors text-center">
+                            Upcoming Events
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Armwrestling competition" 
+                         class="rounded-lg shadow-2xl w-full h-auto object-cover aspect-video">
+                    <div class="absolute -bottom-4 -right-4 bg-primary-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                        <p class="font-bold">WAF Certified</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="py-16 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-heading mb-4">ARENA EQUIPMENT</h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">Professional grade equipment designed for training and competition</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Equipment cards will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-heading mb-4">ARENA CHAMPIONSHIPS</h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">Join the biggest armwrestling competitions worldwide</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event cards will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
+                <div class="mb-10 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1603362852182-34a9f70bd1c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="About Armwrestling Arena" 
+                         class="rounded-lg shadow-lg w-full h-auto object-cover aspect-square">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold font-heading mb-6">ABOUT ARMWRESTLING ARENA</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Armwrestling Arena is the global hub for professional armwrestling. Since 2012, we've been providing top-tier equipment and organizing world-class competitions that attract athletes from every corner of the globe.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Our mission is to elevate the sport of armwrestling through innovative equipment, fair competition standards, and unforgettable events that showcase the strength and skill of competitors.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-trophy text-primary-600 dark:text-primary-400 mr-2"></i>
+                            <span>WAF Certified</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-primary-600 dark:text-primary-400 mr-2"></i>
+                            <span>Worldwide Shipping</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-medal text-primary-600 dark:text-primary-400 mr-2"></i>
+                            <span>Used by Champions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-primary-600 dark:text-primary-400 mr-2"></i>
+                            <span>5-Year Warranty</span>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-primary-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-heading mb-4">CHAMPIONS OF THE ARENA</h2>
+                <p class="max-w-2xl mx-auto opacity-90">What professional armwrestlers say about our equipment and events</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John "The Crusher" Smith</h4>
+                            <p class="text-sm opacity-80">World Champion 2022</p>
+                        </div>
+                    </div>
+                    <p class="italic">"The Armwrestling Arena competition table is the most stable platform I've ever used. It gives me complete confidence to focus on my technique."</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah "Iron Arm" Johnson</h4>
+                            <p class="text-sm opacity-80">European Champion 2023</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Competing at Armwrestling Arena events is always a highlight. The organization is flawless and the equipment is consistently top-notch."</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mike "The Vice" Rodriguez</h4>
+                            <p class="text-sm opacity-80">National Champion 2021-2023</p>
+                        </div>
+                    </div>
+                    <p class="italic">"The durability of Armwrestling Arena products is unmatched. After 3 years of daily training, my table still looks and performs like new."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx
